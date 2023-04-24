@@ -14,8 +14,8 @@ export default function MessageList() {
 							key={`message-${index}`}
 							className={`flex flex-row ${
 								message.role === "assistant"
-									? "bg-slate-900 rounded p-2 text-white"
-									: "bg-slate-700 rounded p-2 text-white"
+									? "bg-slate-500 rounded p-2 text-white"
+									: "bg-slate-800 rounded p-2 text-white"
 							}`}
 						>
 							{message.content}
@@ -23,7 +23,11 @@ export default function MessageList() {
 					);
 				})}
 
-				{fetching && <div>Loading.....</div>}
+				{fetching && (
+					<div className="bg-slate-500 rounded p-2 text-white">
+						Loading.....
+					</div>
+				)}
 			</div>
 		</>
 	);

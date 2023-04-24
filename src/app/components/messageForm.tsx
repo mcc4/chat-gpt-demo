@@ -42,9 +42,17 @@ export default function MessageForm() {
 		});
 	};
 
+	const onEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (e.key === "Enter" && !e.shiftKey) {
+			e.preventDefault();
+			handleSubmit();
+		}
+	};
+
 	return (
 		<div className="flex flex-col flex-shrink-0 mt-5">
 			<textarea
+				onKeyDown={onEnterPress}
 				id="message-box"
 				className="w-full textarea textarea-bordered"
 				placeholder="Ask CHATGPT a question!"
