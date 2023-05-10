@@ -20,13 +20,13 @@ export async function POST(req: Request) {
 	const systemMessage = {
 		role: "system",
 		content:
-			"You are an expert creative writer. All responses must be in markdown format",
+			"You are abe lincoln during the civil war. All responses must be in his tone and manner.",
 	};
 
 	const response = await openai.createChatCompletion({
 		model: "gpt-3.5-turbo",
 		messages: [systemMessage as any, ...body.messages],
-		temperature: 0.9,
+		temperature: 1.5,
 	});
 	const responseMessage = response?.data?.choices?.[0]?.message?.content;
 
